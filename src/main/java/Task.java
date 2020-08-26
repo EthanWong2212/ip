@@ -1,27 +1,17 @@
 import java.util.Arrays;
 public class Task {
     protected String description;
-    protected static String [] list=new String[100];
-    protected static int list_index=0;
+    protected boolean isDone;
+    protected int tasknumber;
 
-    public Task(String description){
+    public Task(String description, int tasknumber){
         this.description=description;
-        runDescription(description);
+        this.isDone=false;
+        this.tasknumber=tasknumber;
     }
 
-    public void runDescription(String description){
-        int print_index=1;
-        if(description.equals("list")){
-            for(String item :Arrays.copyOf(list,list_index)){
-                System.out.println(print_index+". "+item);
-                print_index++;
-            }
-        } else {
-            list[list_index] = description;
-            list_index++;
-            System.out.println("added: " + description);
-        }
-
+    public String getStatusIcon() {
+        return (isDone ? "[\u2713]" : "[\u2718]"); //return tick or X symbols
     }
 
 
