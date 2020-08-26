@@ -1,17 +1,36 @@
+import java.util.Scanner;
+import java.util.Arrays;
+
 public class Duke {
     public static void main(String[] args) {
-        String logo = " ____        _        \n"
-                + "|  _ \\ _   _| | _____ \n"
-                + "| | | | | | | |/ / _ \\\n"
-                + "| |_| | |_| |   <  __/\n"
-                + "|____/ \\__,_|_|\\_\\___|\n";
-        String lvl0 ="____________________________________________________________\n" +
-                " Hello! I'm Duke\n" +
-                " What can I do for you?\n" +
-                "____________________________________________________________\n" +
-                " Bye. Hope to see you again soon!\n" +
-                "____________________________________________________________\n";
-        System.out.println("Hello from\n" + logo);
-        System.out.println(lvl0);
+        Scanner in =new Scanner(System.in);
+        String user_command;
+        String logo=    "  _____ _   _                 \n" +
+                        " | ____| |_| |__   __ _ _ __  \n" +
+                        " |  _| | __| '_ \\ / _` | '_ \\ \n" +
+                        " | |___| |_| | | | (_| | | | |\n" +
+                        " |_____|\\__|_| |_|\\__,_|_| |_|\n" +
+                        "\n";
+        String intro =  " Hi there, I'm Ethan!\n" +
+                        " Do you need anything?\n";
+        String bye=     " Bye. See you soon!\n" +
+                        "----------------------------BYE----------------------------\n";
+        String you=     "----------------------------YOU----------------------------\n";
+        String ethan=   "---------------------------ETHAN---------------------------\n";
+        System.out.println("Hello from\n" + logo+ethan+intro);
+        while(true){
+            System.out.println(you);
+            user_command=in.nextLine();
+            System.out.println(ethan);
+            if(user_command.equals("bye")) {
+                break;
+            }
+            System.out.println(user_command);
+        }
+
+        System.out.println(bye);
     }
+
+
+
 }
