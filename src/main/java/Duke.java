@@ -1,5 +1,5 @@
 import java.util.Scanner;
-import java.util.Arrays;
+
 
 public class Duke {
     public static void main(String[] args) {
@@ -25,7 +25,8 @@ public class Duke {
             if(user_command.equals("bye")) {
                 break;
             }
-            System.out.println(user_command);
+            Task t= new Task(user_command);
+
         }
 
         System.out.println(bye);
