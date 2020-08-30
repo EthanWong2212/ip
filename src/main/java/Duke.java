@@ -3,23 +3,23 @@ import java.util.Scanner;
 
 
 public class Duke {
+
+    public static final String LOGO = "  _____ _   _                 \n" +
+            " | ____| |_| |__   __ _ _ __  \n" +
+            " |  _| | __| '_ \\ / _` | '_ \\ \n" +
+            " | |___| |_| | | | (_| | | | |\n" +
+            " |_____|\\__|_| |_|\\__,_|_| |_|\n" +
+            "\n";
+    public static final String INTRO = " Hi there, I'm Ethan!\n" +
+            " Do you need anything?\n";
+    public static final String BYE = " Bye. See you soon!\n" +
+            "----------------------------BYE----------------------------\n";
+    public static final String YOU = "----------------------------YOU----------------------------\n";
+    public static final String ETHAN = "---------------------------ETHAN---------------------------\n";
+
     public static void main(String[] args) {
         //Default start
-        String logo=    "  _____ _   _                 \n" +
-                        " | ____| |_| |__   __ _ _ __  \n" +
-                        " |  _| | __| '_ \\ / _` | '_ \\ \n" +
-                        " | |___| |_| | | | (_| | | | |\n" +
-                        " |_____|\\__|_| |_|\\__,_|_| |_|\n" +
-                        "\n";
-        String intro =  " Hi there, I'm Ethan!\n" +
-                        " Do you need anything?\n";
-        String bye=     " Bye. See you soon!\n" +
-                        "----------------------------BYE----------------------------\n";
-        String you=     "----------------------------YOU----------------------------\n";
-        String ethan=   "---------------------------ETHAN---------------------------\n";
-        System.out.println("Hello from\n" + logo+ethan+intro);
-
-
+        System.out.println("Hello from\n" + LOGO + ETHAN + INTRO);
 
 
         Scanner in =new Scanner(System.in);
@@ -30,15 +30,14 @@ public class Duke {
 
 
         while(true){
-            System.out.println(you);
+            System.out.println(YOU);
             user_command=in.nextLine();
-            System.out.println(ethan);
+            System.out.println(ETHAN);
 
             String[] words=user_command.split(" ");
             if(user_command.equals("bye")) {
                 break;
-            }
-            if(user_command.equals("list")){
+            } else if(user_command.equals("list")){
                 for(Task task : Arrays.copyOf(task_array,task_array_i)){
                     System.out.println(task.tasknumber+"."+task.getStatusIcon()+" "+task.description);
                 }
@@ -47,7 +46,7 @@ public class Duke {
                 task_array[done_index].isDone=true;
                 System.out.println("Great Job! The task has been marked as done:");
                 System.out.println(task_array[done_index].getStatusIcon()+" "+task_array[done_index].description);
-            }else{
+            } else{
                 Task t= new Task(user_command,task_array_i+1);
                 task_array[task_array_i]=t;
                 task_array_i++;
@@ -57,7 +56,7 @@ public class Duke {
 
         }
 
-        System.out.println(bye);
+        System.out.println(BYE);
     }
 
 
