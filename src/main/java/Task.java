@@ -1,17 +1,26 @@
 import java.util.Arrays;
 public class Task {
     protected String description;
-    protected boolean isDone;
-    protected int tasknumber;
+    protected boolean done;
 
-    public Task(String description, int tasknumber){
+    public Task(String description){
         this.description=description;
-        this.isDone=false;
-        this.tasknumber=tasknumber;
+        this.done=false;
+    }
+
+    public void isDone(boolean done){
+        this.done=true;
+        System.out.println("Great Job! The task has been marked as done:");
+        System.out.println(this.getStatusIcon()+" "+this.description);
     }
 
     public String getStatusIcon() {
-        return (isDone ? "[\u2713]" : "[\u2718]"); //return tick or X symbols
+        return (done ? "[\u2713]" : "[\u2718]"); //return tick or X symbols
+    }
+
+    @Override
+    public String toString(){
+        return this.getStatusIcon() + " " + this.description;
     }
 
 
