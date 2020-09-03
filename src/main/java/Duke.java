@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Scanner;
 
 
@@ -44,10 +43,11 @@ public class Duke {
         System.out.println("Hello from\n" + LOGO + ETHAN + INTRO);
 
         while(true){
+            //Receive user commands
             System.out.println(YOU);
             user_command=in.nextLine();
             System.out.println(ETHAN);
-
+            //Process and run commands
             String[] words=user_command.split(" ");
             if(user_command.equals("bye")) {
                 break;
@@ -68,13 +68,7 @@ public class Duke {
                 Task t= new Task(user_command);
                 addTask(t);
             }
-
-
         }
-
         System.out.println(BYE);
     }
-
-
-
 }
