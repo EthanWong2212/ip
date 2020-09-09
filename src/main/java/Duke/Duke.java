@@ -41,7 +41,7 @@ public class Duke {
         System.out.println("Now you have "+ taskCount+ (taskCount==1?" task":" tasks")+" in the list");
     }
 
-    public static void runCommand(String user_command) {
+    public static void runCommand(String user_command) throws DukeException{
         String[] words= user_command.split(" ");
         if(user_command.equals("list")){
             printList();
@@ -57,7 +57,9 @@ public class Duke {
             int dividerPosition= user_command.indexOf("/");
             addTask(new Event(user_command.substring(6,dividerPosition-1), user_command.substring(dividerPosition+1)));
         } else{
+            throw new DukeException("invalid");
         }
+
     }
 
 
@@ -79,7 +81,11 @@ public class Duke {
             if(user_command.equals("bye")) {
                 break;
             }
-            runCommand(user_command);
+            try {
+                runCommand(user_command);
+            } catch (DukeException e) {
+                e.getError();
+            }
         }
         System.out.println(BYE);
     }
