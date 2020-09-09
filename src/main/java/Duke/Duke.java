@@ -49,7 +49,13 @@ public class Duke {
             int done_index=Integer.parseInt(words[1])-1;
             task_array[done_index].isDone(true);
         } else if(words[0].equals("todo")){
-            addTask(new Todo(user_command.substring(5)));
+            //Check if description exists
+            try{
+                String description=user_command.substring(5);
+                addTask(new Todo(description));
+            } catch(StringIndexOutOfBoundsException e){
+                throw new DukeException("todo incomplete");
+            }
         } else if(words[0].equals("deadline")){
             int dividerPosition= user_command.indexOf("/");
             addTask(new Deadline(user_command.substring(9,dividerPosition-1), user_command.substring(dividerPosition+1)));

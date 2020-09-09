@@ -11,6 +11,9 @@ public class DukeException extends Exception{
         case "invalid":
             System.out.println("OOPS!!! I'm sorry, but I don't know what that means :-(");
             break;
+        case "todo incomplete":
+            System.out.println("OOPS!!! The description of a todo cannot be empty. :-(");
+            break;
         }
     }
 }
