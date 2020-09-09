@@ -1,3 +1,10 @@
+package Duke;
+
+import Duke.Task.Deadline;
+import Duke.Task.Event;
+import Duke.Task.Task;
+import Duke.Task.Todo;
+
 import java.util.Scanner;
 
 
@@ -25,6 +32,7 @@ public class Duke {
             System.out.println((i+1) + "." + task_array[i]);
         }
     }
+
     public static void addTask(Task t){
         task_array[taskCount]=t;
         taskCount++;
@@ -32,6 +40,26 @@ public class Duke {
         System.out.println("  "+ t);
         System.out.println("Now you have "+ taskCount+ (taskCount==1?" task":" tasks")+" in the list");
     }
+
+    public static void runCommand(String user_command) {
+        String[] words= user_command.split(" ");
+        if(user_command.equals("list")){
+            printList();
+        } else if(words[0].equals("done")){
+            int done_index=Integer.parseInt(words[1])-1;
+            task_array[done_index].isDone(true);
+        } else if(words[0].equals("todo")){
+            addTask(new Todo(user_command.substring(5)));
+        } else if(words[0].equals("deadline")){
+            int dividerPosition= user_command.indexOf("/");
+            addTask(new Deadline(user_command.substring(9,dividerPosition-1), user_command.substring(dividerPosition+1)));
+        } else if(words[0].equals("event")){
+            int dividerPosition= user_command.indexOf("/");
+            addTask(new Event(user_command.substring(6,dividerPosition-1), user_command.substring(dividerPosition+1)));
+        } else{
+        }
+    }
+
 
 
     //MAIN
@@ -48,27 +76,13 @@ public class Duke {
             user_command=in.nextLine();
             System.out.println(ETHAN);
             //Process and run commands
-            String[] words=user_command.split(" ");
             if(user_command.equals("bye")) {
                 break;
-            } else if(user_command.equals("list")){
-                printList();
-            } else if(words[0].equals("done")){
-                int done_index=Integer.parseInt(words[1])-1;
-                task_array[done_index].isDone(true);
-            } else if(words[0].equals("todo")){
-                addTask(new Todo(user_command.substring(5)));
-            } else if(words[0].equals("deadline")){
-                int dividerPosition=user_command.indexOf("/");
-                addTask(new Deadline(user_command.substring(9,dividerPosition-1),user_command.substring(dividerPosition+1)));
-            } else if(words[0].equals("event")){
-                int dividerPosition=user_command.indexOf("/");
-                addTask(new Event(user_command.substring(6,dividerPosition-1),user_command.substring(dividerPosition+1)));
-            } else{
-                Task t= new Task(user_command);
-                addTask(t);
             }
+            runCommand(user_command);
         }
         System.out.println(BYE);
     }
+
+
 }

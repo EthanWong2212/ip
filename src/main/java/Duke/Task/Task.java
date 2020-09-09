@@ -1,4 +1,8 @@
-public class Task {
+package Duke.Task;
+
+import Duke.Duke;
+
+public abstract class Task {
     protected String description;
     protected boolean done;
 

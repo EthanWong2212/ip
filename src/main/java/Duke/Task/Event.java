@@ -1,3 +1,5 @@
+package Duke.Task;
+
 public class Event extends Task {
     protected String timing;
     public Event(String description, String timing){
