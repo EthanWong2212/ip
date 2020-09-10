@@ -43,24 +43,44 @@ public class Duke {
 
     public static void runCommand(String user_command) throws DukeException{
         String[] words= user_command.split(" ");
+        String description;
+        String timing;
+        int dividerPosition;
         if(user_command.equals("list")){
             printList();
         } else if(words[0].equals("done")){
             int done_index=Integer.parseInt(words[1])-1;
             task_array[done_index].isDone(true);
         } else if(words[0].equals("todo")){
+<<<<<<< HEAD
             //Check if description exists
             try{
                 String description=user_command.substring(5);
+=======
+            //Description missing handler
+            try{
+                description=user_command.substring(5);
+>>>>>>> branch-Level-5
                 addTask(new Todo(description));
             } catch(StringIndexOutOfBoundsException e){
                 throw new DukeException("todo incomplete");
             }
         } else if(words[0].equals("deadline")){
-            int dividerPosition= user_command.indexOf("/");
-            addTask(new Deadline(user_command.substring(9,dividerPosition-1), user_command.substring(dividerPosition+1)));
+            dividerPosition= user_command.indexOf("/");
+            // Divider missing handler
+            if(dividerPosition==-1){
+                throw new DukeException("DL divider missing");
+            }
+            // Deadline incomplete handler
+            try {
+                description = user_command.substring(9, dividerPosition - 1);
+                timing = user_command.substring(dividerPosition + 1);
+                addTask(new Deadline(description, timing));
+            } catch(StringIndexOutOfBoundsException e){
+                throw new DukeException("DL incomplete");
+            }
         } else if(words[0].equals("event")){
-            int dividerPosition= user_command.indexOf("/");
+            dividerPosition= user_command.indexOf("/");
             addTask(new Event(user_command.substring(6,dividerPosition-1), user_command.substring(dividerPosition+1)));
         } else{
             throw new DukeException("invalid");

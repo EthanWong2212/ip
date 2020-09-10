@@ -2,6 +2,10 @@ package Duke;
 
 public class DukeException extends Exception{
     protected String error;
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch-Level-5
     public DukeException(String error){
         this.error=error;
     }
@@ -14,6 +18,15 @@ public class DukeException extends Exception{
         case "todo incomplete":
             System.out.println("OOPS!!! The description of a todo cannot be empty. :-(");
             break;
+<<<<<<< HEAD
+=======
+        case "DL divider missing":
+            System.out.println("OOPS!!! The divider (\"/\") for deadline is missing. :-(");
+            break;
+        case "DL incomplete":
+            System.out.println("OOPS!!! The description and timing of a deadline cannot be empty. :-(");
+            break;
+>>>>>>> branch-Level-5
         }
     }
 }
