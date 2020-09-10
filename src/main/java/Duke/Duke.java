@@ -52,15 +52,9 @@ public class Duke {
             int done_index=Integer.parseInt(words[1])-1;
             task_array[done_index].isDone(true);
         } else if(words[0].equals("todo")){
-<<<<<<< HEAD
-            //Check if description exists
-            try{
-                String description=user_command.substring(5);
-=======
             //Description missing handler
             try{
                 description=user_command.substring(5);
->>>>>>> branch-Level-5
                 addTask(new Todo(description));
             } catch(StringIndexOutOfBoundsException e){
                 throw new DukeException("todo incomplete");
