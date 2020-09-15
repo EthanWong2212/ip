@@ -5,6 +5,7 @@ import Duke.Task.Event;
 import Duke.Task.Task;
 import Duke.Task.Todo;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -23,18 +24,18 @@ public class Duke {
     public static final String YOU = "----------------------------YOU----------------------------\n";
     public static final String ETHAN = "---------------------------ETHAN---------------------------\n";
 
-    private static Task[] task_array= new Task[100];
+    private static ArrayList<Task> task_list=new ArrayList<>();
     private static int taskCount=0;
 
     //Methods
     public static void printList(){
-        for(int i=0; i<taskCount; i++) {
-            System.out.println((i+1) + "." + task_array[i]);
+        for(Task task:task_list) {
+            System.out.println((task_list.indexOf(task)+1) + "." + task);
         }
     }
 
     public static void addTask(Task t){
-        task_array[taskCount]=t;
+        task_list.add(t);
         taskCount++;
         System.out.println("Got it. I've added this task:");
         System.out.println("  "+ t);
@@ -49,8 +50,15 @@ public class Duke {
         if(user_command.equals("list")){
             printList();
         } else if(words[0].equals("done")){
-            int done_index=Integer.parseInt(words[1])-1;
-            task_array[done_index].isDone(true);
+            try {
+                int done_index=Integer.parseInt(words[1])-1;
+                task_list.get(done_index).isDone(true);
+            }catch(IndexOutOfBoundsException e){
+                throw new DukeException("Done out of bounds");
+            } catch(NumberFormatException e){
+                throw new DukeException("Done empty");
+            }
+
         } else if(words[0].equals("todo")){
             //Description missing handler
             try{

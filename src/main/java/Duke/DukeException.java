@@ -20,6 +20,12 @@ public class DukeException extends Exception{
         case "DL incomplete":
             System.out.println("OOPS!!! The description and timing of a deadline cannot be empty. :-(");
             break;
+        case "Done out of bounds":
+            System.out.println("OOPS!!! The item you have marked as done does not seem to exist :-(");
+            break;
+        case "Done empty"  :
+            System.out.println("OOPS!!! I do not know what to mark as done :-(");
+            break;
         }
     }
 }
