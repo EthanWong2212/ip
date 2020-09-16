@@ -26,6 +26,9 @@ public class DukeException extends Exception{
         case "Done empty"  :
             System.out.println("OOPS!!! I do not know what to mark as done :-(");
             break;
+        case "Delete out of bounds":
+            System.out.println("OOPS!!! The item you want to delete does not seem to exist :-(");
+            break;
         }
     }
 }
