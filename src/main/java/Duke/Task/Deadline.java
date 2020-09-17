@@ -13,6 +13,10 @@ public class Deadline extends Task{
         }
     }
 
+    public String getTime(){
+        return this.timing.substring(3);
+    }
+
     @Override
     public String toString(){
         return "[D] "+ super.toString()+ " (by: "+ timing.substring(3) +")" ;

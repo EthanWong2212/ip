@@ -1,10 +1,13 @@
 package Duke;
 
+import Duke.FileHandler.FileHandler;
 import Duke.Task.Deadline;
 import Duke.Task.Event;
 import Duke.Task.Task;
 import Duke.Task.Todo;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -26,6 +29,7 @@ public class Duke {
 
     private static ArrayList<Task> task_list=new ArrayList<>();
     private static int taskCount=0;
+    public static FileHandler file=new FileHandler("Duke","data/Duke.txt");
 
     //Methods
     public static void printList(){
@@ -87,16 +91,23 @@ public class Duke {
         } else{
             throw new DukeException("invalid");
         }
+        try {
+            file.updateFile(task_list);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
 
 
     //MAIN
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException, DukeException {
         String user_command;
         Scanner in =new Scanner(System.in);
-
+        file.getInfo();
+        file.readFile(task_list);
+        taskCount= file.getTask_count();
         //Default start
         System.out.println("Hello from\n" + LOGO + ETHAN + INTRO);
 
