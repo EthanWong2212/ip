@@ -15,6 +15,12 @@ public abstract class Task {
         System.out.println("Great Job! The task has been marked as done:");
         System.out.println(this.getStatusIcon()+" "+this.description);
     }
+    public boolean checkDone(){
+        return this.done;
+    }
+    public String getDesc(){
+        return this.description;
+    }
 
     public String getStatusIcon() {
         return (done ? "[\u2713]" : "[\u2718]"); //return tick or X symbols

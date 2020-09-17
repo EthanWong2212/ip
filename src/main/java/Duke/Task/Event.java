@@ -7,6 +7,12 @@ public class Event extends Task {
         this.timing=timing;
     }
 
+    public String getDesc(){
+        return this.description;
+    }
+    public String getTime(){
+        return this.timing.substring(3);
+    }
     @Override
     public String toString(){
         return "[E] "+ super.toString()+ " (at: "+ timing.substring(3) +")" ;
