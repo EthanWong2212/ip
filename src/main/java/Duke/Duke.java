@@ -45,6 +45,13 @@ public class Duke {
         System.out.println("  "+ t);
         System.out.println("Now you have "+ taskCount+ (taskCount==1?" task":" tasks")+" in the list");
     }
+    public static void removeTask(Task t){
+        taskCount--;
+        task_list.remove(t);
+        System.out.println("Noted. I've removed this task:");
+        System.out.println("  "+ t);
+        System.out.println("Now you have "+ taskCount+ (taskCount==1?" task":" tasks")+" in the list");
+    }
 
     public static void runCommand(String user_command) throws DukeException{
         String[] words= user_command.split(" ");
@@ -88,6 +95,14 @@ public class Duke {
         } else if(words[0].equals("event")){
             dividerPosition= user_command.indexOf("/");
             addTask(new Event(user_command.substring(6,dividerPosition-1), user_command.substring(dividerPosition+1)));
+        } else if(words[0].equals("delete")) {
+            try{
+                int remove_index=Integer.parseInt(words[1])-1;
+                removeTask(task_list.get(remove_index));
+            } catch(IndexOutOfBoundsException e){
+                throw new DukeException("Delete out of bounds");
+            }
+
         } else{
             throw new DukeException("invalid");
         }
