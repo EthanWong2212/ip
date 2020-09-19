@@ -5,6 +5,7 @@ import Duke.Task.Deadline;
 import Duke.Task.Event;
 import Duke.Task.Task;
 import Duke.Task.Todo;
+import Duke.Ui.Ui;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -13,20 +14,6 @@ import java.util.Scanner;
 
 
 public class Duke {
-
-    public static final String LOGO = "  _____ _   _\n" +
-            " | ____| |_| |__   __ _ _ __\n" +
-            " |  _| | __| '_ \\ / _` | '_ \\\n" +
-            " | |___| |_| | | | (_| | | | |\n" +
-            " |_____|\\__|_| |_|\\__,_|_| |_|\n" +
-            "\n";
-    public static final String INTRO = " Hi there, I'm Ethan!\n" +
-            " Do you need anything?\n";
-    public static final String BYE = " Bye. See you soon!\n" +
-            "----------------------------BYE----------------------------";
-    public static final String YOU = "----------------------------YOU----------------------------\n";
-    public static final String ETHAN = "---------------------------ETHAN---------------------------\n";
-
     private static ArrayList<Task> task_list=new ArrayList<>();
     private static int taskCount=0;
     public static FileHandler file=new FileHandler("Duke","data/Duke.txt");
@@ -124,13 +111,13 @@ public class Duke {
         file.readFile(task_list);
         taskCount= file.getTask_count();
         //Default start
-        System.out.println("Hello from\n" + LOGO + ETHAN + INTRO);
+        Ui.printStart();
 
         while(true){
             //Receive user commands
-            System.out.println(YOU);
+            Ui.printYou();
             user_command=in.nextLine();
-            System.out.println(ETHAN);
+            Ui.printETHAN();
             //Process and run commands
             if(user_command.equals("bye")) {
                 break;
@@ -141,7 +128,7 @@ public class Duke {
                 e.getError();
             }
         }
-        System.out.println(BYE);
+        Ui.printBye();
     }
 
 
