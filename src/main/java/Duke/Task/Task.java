@@ -12,8 +12,6 @@ public abstract class Task {
 
     public void isDone(boolean done){
         this.done=true;
-        System.out.println("Great Job! The task has been marked as done:");
-        System.out.println(this.getStatusIcon()+" "+this.description);
     }
     public boolean checkDone(){
         return this.done;
