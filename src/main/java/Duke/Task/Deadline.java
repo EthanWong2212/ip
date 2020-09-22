@@ -3,22 +3,22 @@ package Duke.Task;
 import Duke.DukeException;
 
 public class Deadline extends Task{
-    protected String timing;
+    protected String time;
 
-    public Deadline(String description, String timing) throws DukeException {
+    public Deadline(String description, String time) throws DukeException {
         super(description);
-        this.timing=timing;
-        if(description.isBlank()||timing.isBlank()){
+        this.time = time;
+        if(description.isBlank()|| time.isBlank()){
             throw new DukeException("DL incomplete");
         }
     }
 
     public String getTime(){
-        return this.timing.substring(3);
+        return time;
     }
 
     @Override
     public String toString(){
-        return "[D] "+ super.toString()+ " (by: "+ timing.substring(3) +")" ;
+        return "[D] "+ super.toString()+ " (by: "+ time +")" ;
     }
 }

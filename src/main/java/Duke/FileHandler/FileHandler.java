@@ -1,22 +1,19 @@
 package Duke.FileHandler;
 import Duke.DukeException;
-import Duke.Task.Deadline;
-import Duke.Task.Event;
-import Duke.Task.Task;
-import Duke.Task.Todo;
+import Duke.Task.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Scanner;
+
 public class FileHandler {
-    public static final String emptyplaceholder = "   ";
     private File file;
     private String name;
     private String dir;
-    private int task_count;
+    private int taskCount=0;
+    private int taskDone=0;
     
     public FileHandler(String name, String dir){
         this.name=name;
@@ -48,42 +45,44 @@ public class FileHandler {
         }
     }
 
-    public void readFile(ArrayList<Task> tasks) throws FileNotFoundException, DukeException {
+    public void readFile(TaskList taskList) throws FileNotFoundException, DukeException {
         Scanner s= new Scanner(file);
         while(s.hasNext()) {
-            Task t;
+            Task t = null;
             String entry = s.nextLine();
             String[] entry_words = entry.split("\\|");
             switch (entry_words[0]) {
             case "T":
                 t = new Todo(entry_words[2]);
-                tasks.add(t);
+                taskList.addTask(t);
                 break;
             case "D":
-                t = new Deadline(entry_words[2], emptyplaceholder +entry_words[3]);
-                tasks.add(t);
+                t = new Deadline(entry_words[2], entry_words[3]);
+                taskList.addTask(t);
                 break;
             case "E":
-                t = new Event(entry_words[2], emptyplaceholder+entry_words[3]);
-                tasks.add(t);
+                t = new Event(entry_words[2], entry_words[3]);
+                taskList.addTask(t);
                 break;
+            default:
+                System.out.println("File Corrupted");
             }
             if (entry_words[1].equals("1")) {
-                tasks.get(task_count).isDone(true);
+                t.isDone(true);
+                taskDone++;
             }
-            task_count++;
+            taskCount++;
         }
+        taskList.setDoneCount(taskDone);
+        taskList.setSize(taskCount);
         System.out.println("File Read");
 
     }
-    public int getTask_count(){
-        return task_count;
-    }
 
-    public void updateFile(ArrayList<Task> tasks) throws IOException {
+    public void updateFile(TaskList taskList) throws IOException {
         String line = new String();
         FileWriter fw=new FileWriter(file);
-        for(Task t: tasks){
+        for(Task t: taskList.getList()){
             if(t instanceof Todo){
                 line+="T|"+ (t.checkDone()?1:0)+"|"+t.getDesc();
             }else if(t instanceof  Deadline){

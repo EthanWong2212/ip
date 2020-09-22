@@ -1,48 +1,55 @@
 package Duke.Task;
+import Duke.Ui.Ui;
 
 import java.util.ArrayList;
 
 public class TaskList {
-    private static ArrayList<Task> task_list;
+    private static ArrayList<Task> taskList;
     private static int size;
-    private static int task_done;
+    private static int taskDone;
     public TaskList(){
-        task_list=new ArrayList<>();
+        taskList =new ArrayList<>();
         size=0;
-        task_done=0;
+        taskDone =0;
     }
     public void addTask(Task task){
-        task_list.add(task);
+        taskList.add(task);
         size++;
-        System.out.println("Got it. I've added this task:");
-        System.out.println("  "+ task);
-        System.out.println("Now you have "+ size+ (size==1?" task":" tasks")+" in the list");
     }
     public void deleteTask(int index){
         size--;
-        Task t=task_list.get(index);
-        task_list.remove(t);
-        System.out.println("Noted. I've removed this task:");
-        System.out.println("  "+ t);
-        System.out.println("Now you have "+ size+ (size==1?" task":" tasks")+" in the list");
+        Task task= taskList.get(index);
+        if(task.checkDone()){
+            taskDone--;
+        }
+        taskList.remove(task);
+        Ui.printTaskDeleted(task,size);
     }
     public void doneTask(int index){
-        Task t=task_list.get(index);
-        if(t.checkDone()){
-            System.out.println("The task has already been mark as done");
-        }else {
-            t.isDone(true);
-            task_done++;
-            System.out.println("Great Job! The task has been marked as done:");
-            System.out.println(t);
-            System.out.println("You have " + (size - task_done) + " tasks not done");
+        Task task= taskList.get(index);
+        if(!task.checkDone()){
+            task.isDone(true);
+            taskDone++;
         }
+        Ui.printTaskDone(task, size-taskDone);
 
     }
     public void printList(){
-        for(Task task:task_list) {
-            System.out.println((task_list.indexOf(task)+1) + "." + task);
+        for(Task task: taskList) {
+            System.out.println((taskList.indexOf(task)+1) + "." + task);
         }
+    }
+    public void setDoneCount(int taskDone){
+        this.taskDone=taskDone;
+    }
+    public void setSize(int size){
+        this.size=size;
+    }
+    public ArrayList<Task> getList(){
+        return taskList;
+    }
+    public int getSize(){
+        return size;
     }
 
 }
