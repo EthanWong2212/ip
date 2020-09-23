@@ -7,7 +7,7 @@ public class Todo extends Task{
         super(description);
         //In case description is " "
         if(description.isBlank()){
-            throw new DukeException("todo incomplete");
+            throw new DukeException("Desc missing");
         }
     }
 

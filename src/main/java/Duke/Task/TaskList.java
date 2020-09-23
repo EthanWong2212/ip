@@ -5,25 +5,21 @@ import java.util.ArrayList;
 
 public class TaskList {
     private static ArrayList<Task> taskList;
-    private static int size;
     private static int taskDone;
     public TaskList(){
         taskList =new ArrayList<>();
-        size=0;
         taskDone =0;
     }
     public void addTask(Task task){
         taskList.add(task);
-        size++;
     }
     public void deleteTask(int index){
-        size--;
         Task task= taskList.get(index);
         if(task.checkDone()){
             taskDone--;
         }
         taskList.remove(task);
-        Ui.printTaskDeleted(task,size);
+        Ui.printTaskDeleted(task,taskList.size());
     }
     public void doneTask(int index){
         Task task= taskList.get(index);
@@ -31,7 +27,7 @@ public class TaskList {
             task.isDone(true);
             taskDone++;
         }
-        Ui.printTaskDone(task, size-taskDone);
+        Ui.printTaskDone(task, taskList.size()-taskDone);
 
     }
     public void printList(){
@@ -42,14 +38,11 @@ public class TaskList {
     public void setDoneCount(int taskDone){
         this.taskDone=taskDone;
     }
-    public void setSize(int size){
-        this.size=size;
-    }
     public ArrayList<Task> getList(){
         return taskList;
     }
     public int getSize(){
-        return size;
+        return taskList.size();
     }
 
 }

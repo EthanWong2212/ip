@@ -31,12 +31,25 @@ public class Command {
             Ui.printTaskAdded(task,taskList);
             break;
         case "done":
-            int doneIndex=Parser.doneIndex(userCmd);
-            taskList.doneTask(doneIndex);
+            try {
+                int doneIndex = Parser.doneIndex(userCmd);
+                taskList.doneTask(doneIndex);
+            } catch (IndexOutOfBoundsException e){
+                throw new DukeException("Index out of bounds");
+            } catch (NumberFormatException e){
+                throw new DukeException("Index not provided");
+            }
             break;
         case "delete":
-            int deleteIndex=Parser.deleteIndex(userCmd);
-            taskList.deleteTask(deleteIndex);
+            try{
+                int deleteIndex=Parser.deleteIndex(userCmd);
+                taskList.deleteTask(deleteIndex);
+            } catch (IndexOutOfBoundsException e){
+                throw new DukeException("Index out of bounds");
+            } catch (NumberFormatException e){
+                throw new DukeException("Index not provided");
+            }
+
             break;
         default:
             throw new DukeException("invalid");

@@ -11,24 +11,21 @@ public class DukeException extends Exception{
         case "invalid":
             System.out.println("OOPS!!! I'm sorry, but I don't know what that means :-(");
             break;
-        case "todo incomplete":
-            System.out.println("OOPS!!! The description of a todo cannot be empty. :-(");
+        case "Index not provided":
+            System.out.println("Index for command not provided");
             break;
-        case "DL divider missing":
-            System.out.println("OOPS!!! The divider (\"/\") for deadline is missing. :-(");
+        case "Index out of bounds":
+            System.out.println("Index out of bounds");
             break;
-        case "DL incomplete":
-            System.out.println("OOPS!!! The description and timing of a deadline cannot be empty. :-(");
+        case "Event divider missing":
+            System.out.println("OOPS!!! The divider (\"/at\") for deadline is missing. :-(");
             break;
-        case "Done out of bounds":
-            System.out.println("OOPS!!! The item you have marked as done does not seem to exist :-(");
+        case "Time missing":
+            System.out.println("OOPS!!! The task timing is missing. :-(");
             break;
-        case "Done empty"  :
-            System.out.println("OOPS!!! I do not know what to mark as done :-(");
-            break;
-        case "Delete out of bounds":
-            System.out.println("OOPS!!! The item you want to delete does not seem to exist :-(");
-            break;
+        case "Desc missing":
+            System.out.println("OOPS!!! The task description is missing. :-(");
+
         }
     }
 }

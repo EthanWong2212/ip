@@ -8,9 +8,6 @@ public class Deadline extends Task{
     public Deadline(String description, String time) throws DukeException {
         super(description);
         this.time = time;
-        if(description.isBlank()|| time.isBlank()){
-            throw new DukeException("DL incomplete");
-        }
     }
 
     public String getTime(){

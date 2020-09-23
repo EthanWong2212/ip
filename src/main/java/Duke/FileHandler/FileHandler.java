@@ -12,7 +12,6 @@ public class FileHandler {
     private File file;
     private String name;
     private String dir;
-    private int taskCount=0;
     private int taskDone=0;
     
     public FileHandler(String name, String dir){
@@ -71,10 +70,8 @@ public class FileHandler {
                 t.isDone(true);
                 taskDone++;
             }
-            taskCount++;
         }
         taskList.setDoneCount(taskDone);
-        taskList.setSize(taskCount);
         System.out.println("File Read");
 
     }
