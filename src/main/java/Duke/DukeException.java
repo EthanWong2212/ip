@@ -31,6 +31,10 @@ public class DukeException extends Exception{
             break;
         case "Desc missing":
             System.out.println("OOPS!!! The task description is missing. :-(");
+            break;
+        case "Find blank":
+            System.out.println("OOPS!!! I'm sorry but I don't know what you are looking for");
+            break;
 
         }
     }

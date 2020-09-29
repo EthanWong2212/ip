@@ -1,0 +1,7 @@
+T|0|go home
+T|0|go sleep
+T|0|hi there
+T|0|read a book
+D|0|read a book|4pm
+D|0|play com|3pm
+E|0|go home to fight|4pm
