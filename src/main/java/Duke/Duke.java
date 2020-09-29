@@ -11,7 +11,6 @@ import java.util.Scanner;
 
 
 public class Duke {
-    private static int taskCount=0;
     public static FileHandler file=new FileHandler("Duke","data/Duke.txt");
     public static TaskList taskList= new TaskList();
 
@@ -30,7 +29,7 @@ public class Duke {
             userCmd=in.nextLine();
             Ui.printETHAN();
             //Process and run commands
-            if(userCmd.equals("bye")) {
+            if(userCmd.toLowerCase().equals("bye")) {
                 break;
             }
             try {

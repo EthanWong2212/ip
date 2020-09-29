@@ -7,49 +7,40 @@ import Duke.Task.TaskList;
 import Duke.Ui.Ui;
 
 public class Command {
+
+    public static final String COMMAND_LIST = "list";
+    public static final String COMMAND_TODO = "todo";
+    public static final String COMMAND_DEADLINE = "deadline";
+    public static final String COMMAND_EVENT = "event";
+    public static final String COMMAND_DONE = "done";
+    public static final String COMMAND_DELETE = "delete";
+
     public static void runCommand(String userCmd, TaskList taskList) throws DukeException {
         Task task;
         String[] cmd_split= userCmd.split(" ");
-        String type=cmd_split[0].trim();
+        String type=cmd_split[0].trim().toLowerCase();
         switch (type){
-        case"list":
+        case COMMAND_LIST:
             taskList.printList();
             break;
-        case "todo":
+        case COMMAND_TODO:
             task=Parser.todo(userCmd);
             taskList.addTask(task);
             Ui.printTaskAdded(task,taskList);
             break;
-        case "deadline":
-            task=Parser.deadlineTask(userCmd);
+        case COMMAND_DEADLINE:
+        case COMMAND_EVENT:
+            task=Parser.deadlineeventTask(userCmd, type);
             taskList.addTask(task);
             Ui.printTaskAdded(task,taskList);
             break;
-        case "event":
-            task=Parser.eventTask(userCmd);
-            taskList.addTask(task);
-            Ui.printTaskAdded(task,taskList);
+        case COMMAND_DONE:
+            int doneIndex=Parser.donedeleteIndex(userCmd, type, taskList.getSize());
+            taskList.doneTask(doneIndex);
             break;
-        case "done":
-            try {
-                int doneIndex = Parser.doneIndex(userCmd);
-                taskList.doneTask(doneIndex);
-            } catch (IndexOutOfBoundsException e){
-                throw new DukeException("Index out of bounds");
-            } catch (NumberFormatException e){
-                throw new DukeException("Index not provided");
-            }
-            break;
-        case "delete":
-            try{
-                int deleteIndex=Parser.deleteIndex(userCmd);
-                taskList.deleteTask(deleteIndex);
-            } catch (IndexOutOfBoundsException e){
-                throw new DukeException("Index out of bounds");
-            } catch (NumberFormatException e){
-                throw new DukeException("Index not provided");
-            }
-
+        case COMMAND_DELETE:
+            int delIndex=Parser.donedeleteIndex(userCmd, type, taskList.getSize());
+            taskList.deleteTask(delIndex);
             break;
         default:
             throw new DukeException("invalid");
