@@ -8,13 +8,14 @@ import Duke.Ui.Ui;
 
 public class Command {
 
-    public static final String COMMAND_LIST = "list";
-    public static final String COMMAND_TODO = "todo";
-    public static final String COMMAND_DEADLINE = "deadline";
-    public static final String COMMAND_EVENT = "event";
-    public static final String COMMAND_DONE = "done";
-    public static final String COMMAND_DELETE = "delete";
-    public static final String COMMAND_FIND="find";
+    public static final String CMD_LIST = "list";
+    public static final String CMD_TODO = "todo";
+    public static final String CMD_DEADLINE = "deadline";
+    public static final String CMD_EVENT = "event";
+    public static final String CMD_DONE = "done";
+    public static final String CMD_DELETE = "delete";
+    public static final String CMD_FIND ="find";
+    public static final String CMD_HELP="help";
 
     /**
      * Modifies taskList according to user input.
@@ -31,31 +32,34 @@ public class Command {
         String[] cmd_split= userCmd.split(" ");
         String type=cmd_split[0].trim().toLowerCase();
         switch (type){
-        case COMMAND_LIST:
+        case CMD_LIST:
             taskList.printList();
             break;
-        case COMMAND_TODO:
+        case CMD_TODO:
             task=Parser.getTodoTask(userCmd);
             taskList.addTask(task);
             Ui.printTaskAdded(task,taskList);
             break;
-        case COMMAND_DEADLINE:
-        case COMMAND_EVENT:
+        case CMD_DEADLINE:
+        case CMD_EVENT:
             task=Parser.getDeadlineEventTask(userCmd, type);
             taskList.addTask(task);
             Ui.printTaskAdded(task,taskList);
             break;
-        case COMMAND_DONE:
+        case CMD_DONE:
             int doneIndex=Parser.getDoneDeleteIndex(userCmd, type, taskList.getSize());
             taskList.doneTask(doneIndex);
             break;
-        case COMMAND_DELETE:
+        case CMD_DELETE:
             int delIndex=Parser.getDoneDeleteIndex(userCmd, type, taskList.getSize());
             taskList.deleteTask(delIndex);
             break;
-        case COMMAND_FIND:
+        case CMD_FIND:
             String key=Parser.getFindKeyword(userCmd);
             taskList.findTask(key);
+            break;
+        case CMD_HELP:
+            Ui.printHelp();
             break;
         default:
             throw new DukeException("invalid");
