@@ -2,21 +2,21 @@
 
 Ethan is a handy personal task manager which will help you maintain your task list through the Command Line Interface (CLI).
 
-* [1. Quick Start](#1-quick-start)
-* [2. Features](#features)
-    + [2.1 View help: `help`](#help-view-help)
-    + [2.2 View task list: `list`](#view-task-list)
-    + [2.2 Add todo: `todo`](#3-adding-an-event-task-event)
-    + [2.3 Add deadline: `deadline`](#4-listing-all-tasks-at-hand-list)
-    + [2.4 Add event: `event`](#9-listing-available-help-help)
-    + [2.5 Mark Done: `done`](#5-marking-a-task-as-complete-done)
-    + [2.6 Delete task: `delete`](#6-deleting-a-task-delete)
-    + [2.7 Find task: `find`](#7-finding-a-task-find)
-    + [2.8 End the program: `bye`](#8-exiting-the-program-bye)
-* [3. FAQ](#faq)
-* [4. Command Summary](#command-summary)
+* [Quick Start](#1-quick-start)
+* [Features](#2-features)
+    + [1. View help: `help`](#21-help-view-help)
+    + [2. View task list: `list`](#list-view-task-list)
+    + [3. Add todo: `todo`](#2-3-adding-an-event-task-event)
+    + [4. Add deadline: `deadline`](#4-listing-all-tasks-at-hand-list)
+    + [5. Add event: `event`](#9-listing-available-help-help)
+    + [6. Mark Done: `done`](#5-marking-a-task-as-complete-done)
+    + [7. Delete task: `delete`](#6-deleting-a-task-delete)
+    + [8. Find task: `find`](#7-finding-a-task-find)
+    + [9. End the program: `bye`](#8-exiting-the-program-bye)
+* [FAQ](#faq)
+* [Command Summary](#command-summary)
 
-## 1. Quick Start
+## Quick Start
 
 1. Ensure that you have Java `11` installed in your computer.
 2. Download the latest ip.jar from  link.
@@ -26,7 +26,7 @@ Ethan is a handy personal task manager which will help you maintain your task li
 6. Type commands in the command prompt and press Enter to run commands. e.g. type `help` and Enter to see commands available
 7. Refer to features section below for other commands
 
-## 2. Features 
+## Features 
 There are **3** types of task, **todo**,**deadlines** and **events**
 
 Following is a list of commands at your disposal:
@@ -40,21 +40,21 @@ Following is a list of commands at your disposal:
 * `find`- Find tasks
 * `bye`- End program
 
-### 2.1 `help` - View help
+### 1. `help` - View help
 Shows the commands and their respective input formats
 
 **Format:** `help`
 
 **Outcome:**
 
-### 2.2 `list`- View task list
+### 2. `list`- View task list
 Shows list of tasks
 
 **Format:** `list`
 
 **Outcome:**
 
-### 2.3 `todo`- Add todo
+### 3. `todo`- Add todo
 Adds a todo task to task list
 
 **Format:** `todo DESCRIPTION`
@@ -65,7 +65,7 @@ Adds a todo task to task list
 **Outcome:**
 
 
-### 2.4 `deadline`- Add deadline
+### 4. `deadline`- Add deadline
 Adds a deadline task to task list
 
 **Format**: `deadline DESCRIPTION /by DATE TIME`
@@ -80,7 +80,7 @@ Adds a deadline task to task list
 
 **Outcome:**
 
-### 2.5 `event`- Add event
+### 5. `event`- Add event
 Adds an event to task list
 
 **Format:** `event DESCRIPTION /at DATE TIME`
@@ -95,7 +95,7 @@ Adds an event to task list
 
 **Outcome:**
 
-### 2.6 `done`- Mark done
+### 6. `done`- Mark done
 Marks a task in task list as done
 
 **Format:** `done TASKNUMBER`
@@ -108,7 +108,7 @@ Marks a task in task list as done
 
 **Outcome:**
 
-### 2.7 `delete`- Delete task
+### 7. `delete`- Delete task
 Deletes a task from task list
 
 **Format:** `delete TASKNUMBER`
@@ -121,7 +121,7 @@ Deletes a task from task list
 
 **Outcome:**
 
-### 2.7 `find`- Find task
+### 8. `find`- Find task
 Finds task from task list based on `KEYWORD` and description.
 
 **Format:** `find KEYWORD`
@@ -133,7 +133,20 @@ Finds task from task list based on `KEYWORD` and description.
 **Outcome:**
 
 
-### 2.8 `bye`- End program
+### 9. `bye`- End program
 Ends program before saving and updating task list
 
 **Format** `bye`
+
+## Command Summary
+Action | Format | Example
+-------- | --------- | ---------
+help | `help` | 'help'
+list | `list` | `list`
+todo | `todo DESCRIPTION` | `todo buy some milk`
+deadline | `deadline DESCRIPTION /by DATE TIME (dd/MM/yyyy HH:mm)` | `deadline CS hw /by 28/02/2021 23:59`
+event | `event DESCRIPTION /at DATE TIME (dd/MM/yyyy HH:mm)` | `deadline Christmas party /at 25/12/2020 17:00 `
+done | `done TASKNUMBER` | `done 4`
+delete | `delete TASKNUMBER` | `delete 2`
+find | `find KEYWORD` | `find party`
+bye | `bye` | `bye`
