@@ -15,6 +15,16 @@ public class Command {
     public static final String COMMAND_DONE = "done";
     public static final String COMMAND_DELETE = "delete";
 
+    /**
+     * Modifies taskList according to user input.
+     * If user input command is invalid, exception is thrown.
+     *
+     * @param userCmd   Full input by user.
+     * @param taskList  taskList which requires relevant modifications by user input command.
+     * @throws DukeException    If user input command invalid.
+     */
+
+
     public static void runCommand(String userCmd, TaskList taskList) throws DukeException {
         Task task;
         String[] cmd_split= userCmd.split(" ");
