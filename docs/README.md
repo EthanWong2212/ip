@@ -3,9 +3,9 @@
 Ethan is a handy personal task manager which will help you maintain your task list through the Command Line Interface (CLI).
 
 * [1. Quick Start](#1-quick-start)
-* [2. Features](#2-features)
-    + [2.1 View help: `help`](#21-help-view-help)
-    + [2.2 View task list: `list`](#2.2)
+* [2. Features](#features)
+    + [2.1 View help: `help`](#help-view-help)
+    + [2.2 View task list: `list`](#view-task-list)
     + [2.2 Add todo: `todo`](#3-adding-an-event-task-event)
     + [2.3 Add deadline: `deadline`](#4-listing-all-tasks-at-hand-list)
     + [2.4 Add event: `event`](#9-listing-available-help-help)
