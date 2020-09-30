@@ -31,6 +31,16 @@ public class Parser {
     private static String div;
     private static String divError;
 
+    /**
+     * Processes the user command and returns required task for deadline and event commands.
+     * Checks for errors and validity of user input.
+     *
+     * @param userCmd Full input by user.
+     * @param type Command type to establish if userCmd is processed as deadline or event command.
+     * @return required task.
+     * @throws DukeException If errors under DukeExceptions are caught.
+     */
+
     public static Task deadlineeventTask(String userCmd, String type) throws DukeException{
         setParam(type);
         String desc;
@@ -62,6 +72,17 @@ public class Parser {
 
     }
 
+
+    /**
+     * Processes the user command and returns todo object for todo commands.
+     * Checks for errors and validity of user input.
+     *
+     * @param userCmd Full input by user.
+     * @return Todo Task object.
+     * @throws DukeException If errors under DukeExceptions are caught.
+     */
+
+
     public static Task todo(String userCmd) throws DukeException {
         if(userCmd.length()<TODO_CMD_LENGTH+1){
             throw new  DukeException(DESC_MISSING);
@@ -72,6 +93,18 @@ public class Parser {
         }
         return new Todo(desc);
     }
+
+
+    /**
+     * Processes the user command and returns required index for delete and done commands.
+     * Checks for errors and validity of user input.
+     *
+     * @param userCmd Full input by user.
+     * @param type Command type to establish if userCmd is processed as done or delete command.
+     * @param size Size of taskList
+     * @return index integer.
+     * @throws DukeException If errors under DukeExceptions are caught.
+     */
 
     public static int donedeleteIndex(String userCmd, String type, int size) throws DukeException{
         setParam(type);
@@ -109,7 +142,12 @@ public class Parser {
     }
 
 
-
+    /**
+     * Sets parameter values according to the command type.
+     * This will thus affect how userCmd are processed in donedeleteIndex and deadlineeventTask
+     *
+     * @param type Command type
+     */
     private static void setParam(String type){
         switch(type){
         case CMD_DEADLINE:
