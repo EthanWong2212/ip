@@ -35,6 +35,18 @@ public class TaskList {
             System.out.println((taskList.indexOf(task)+1) + "." + task);
         }
     }
+    public void findTask(String key){
+        boolean found=false;
+        for (Task task:taskList){
+            if(task.getDesc().toLowerCase().contains(key.toLowerCase())){
+                System.out.println((taskList.indexOf(task)+1) + "." +task);
+                found=true;
+            }
+        }
+        if(found==false){
+            System.out.println("There aren't any matching tasks in your list :-(");
+        }
+    }
     public void setDoneCount(int taskDone){
         this.taskDone=taskDone;
     }

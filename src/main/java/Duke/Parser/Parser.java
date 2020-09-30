@@ -18,6 +18,7 @@ public class Parser {
     public static final int TODO_CMD_LENGTH=4;
     public static final int DONE_CMD_LENGTH=4;
     public static final int DELETE_CMD_LENGTH=6;
+    public static final int FIND_CMD_LENGTH=4;
     public static final String DESC_MISSING = "Desc missing";
     public static final String TIME_MISSING = "Time missing";
     public static final String DEADLINE_DIV_ERROR = "Deadline div";
@@ -92,6 +93,19 @@ public class Parser {
             throw new DukeException("Index out of bounds");
         }
         return index;
+    }
+
+    public static String findKey(String userCmd) throws DukeException {
+        String key;
+        if(userCmd.length()<FIND_CMD_LENGTH+1){
+            throw new DukeException("Find blank");
+        }
+        key=userCmd.substring(FIND_CMD_LENGTH+1).trim();
+        if (key.isBlank()){
+            throw new DukeException("Find blank");
+        }
+        return key;
+
     }
 
 
