@@ -31,6 +31,15 @@ public class DukeException extends Exception{
             break;
         case "Desc missing":
             System.out.println("OOPS!!! The task description is missing. :-(");
+            break;
+        case "DateTime invalid":
+            System.out.println("Please input date and time in this format:");
+            System.out.println("DD/MM/YYYY HH:mm");
+            break;
+        case "DateTime before":
+            System.out.println("The date and time you have input has passed :-(");
+            System.out.println("Please input valid date");
+            break;
 
         }
     }
