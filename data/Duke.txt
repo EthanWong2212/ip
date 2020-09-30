@@ -1,7 +1,3 @@
-T|0|go home
-T|0|go sleep
-T|0|hi there
-T|0|read a book
-D|0|read a book|4pm
-D|0|play com|3pm
-E|0|go home to fight|4pm
+T|0|read book
+D|0|CS2113T iP|2/10/2020 23:59
+E|1|bookstore sale|22/1/2021 23:59
