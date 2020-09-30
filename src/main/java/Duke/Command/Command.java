@@ -14,6 +14,7 @@ public class Command {
     public static final String COMMAND_EVENT = "event";
     public static final String COMMAND_DONE = "done";
     public static final String COMMAND_DELETE = "delete";
+    public static final String COMMAND_FIND="find";
 
     /**
      * Modifies taskList according to user input.
@@ -51,6 +52,10 @@ public class Command {
         case COMMAND_DELETE:
             int delIndex=Parser.donedeleteIndex(userCmd, type, taskList.getSize());
             taskList.deleteTask(delIndex);
+            break;
+        case COMMAND_FIND:
+            String key=Parser.findKey(userCmd);
+            taskList.findTask(key);
             break;
         default:
             throw new DukeException("invalid");
