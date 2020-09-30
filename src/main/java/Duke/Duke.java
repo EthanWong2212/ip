@@ -24,11 +24,9 @@ public class Duke {
         Ui.printStart();
 
         while(true){
-            //Receive user commands
             Ui.printYou();
             userCmd=in.nextLine();
             Ui.printETHAN();
-            //Process and run commands
             if(userCmd.toLowerCase().equals("bye")) {
                 break;
             }

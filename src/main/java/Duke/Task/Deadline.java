@@ -12,7 +12,7 @@ public class Deadline extends Task{
     public Deadline(String description, String time){
         super(description);
         this.time = time;
-        dateTime= Parser.parseDateTime(time);
+        dateTime= Parser.getLocalDateTime(time);
     }
 
     public String getTime(){

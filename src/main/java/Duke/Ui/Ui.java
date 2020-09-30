@@ -37,7 +37,7 @@ public class Ui {
     public static void printTaskDeleted(Task task, int size){
         System.out.println("Noted. I've removed this task:");
         System.out.println("  "+ task);
-        System.out.println("Now you have "+ size+ (size==1?" task":" tasks")+" in the list");
+        System.out.println("Now you have "+ size+ (size<1?" task":" tasks")+" in the list");
     }
     public static void printTaskDone(Task task, int notDone){
         System.out.println("Great Job! The task has been marked as done:");

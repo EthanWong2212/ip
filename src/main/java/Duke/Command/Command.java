@@ -35,26 +35,26 @@ public class Command {
             taskList.printList();
             break;
         case COMMAND_TODO:
-            task=Parser.todo(userCmd);
+            task=Parser.getTodoTask(userCmd);
             taskList.addTask(task);
             Ui.printTaskAdded(task,taskList);
             break;
         case COMMAND_DEADLINE:
         case COMMAND_EVENT:
-            task=Parser.deadlineeventTask(userCmd, type);
+            task=Parser.getDeadlineEventTask(userCmd, type);
             taskList.addTask(task);
             Ui.printTaskAdded(task,taskList);
             break;
         case COMMAND_DONE:
-            int doneIndex=Parser.donedeleteIndex(userCmd, type, taskList.getSize());
+            int doneIndex=Parser.getDoneDeleteIndex(userCmd, type, taskList.getSize());
             taskList.doneTask(doneIndex);
             break;
         case COMMAND_DELETE:
-            int delIndex=Parser.donedeleteIndex(userCmd, type, taskList.getSize());
+            int delIndex=Parser.getDoneDeleteIndex(userCmd, type, taskList.getSize());
             taskList.deleteTask(delIndex);
             break;
         case COMMAND_FIND:
-            String key=Parser.findKey(userCmd);
+            String key=Parser.getFindKeyword(userCmd);
             taskList.findTask(key);
             break;
         default:

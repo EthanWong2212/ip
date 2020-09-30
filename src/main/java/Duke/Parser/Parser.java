@@ -7,7 +7,6 @@ import Duke.Task.Task;
 import Duke.Task.Todo;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
 public class Parser {
@@ -41,7 +40,7 @@ public class Parser {
      * @throws DukeException If errors under DukeExceptions are caught.
      */
 
-    public static Task deadlineeventTask(String userCmd, String type) throws DukeException{
+    public static Task getDeadlineEventTask(String userCmd, String type) throws DukeException{
         setParam(type);
         String desc;
         String time;
@@ -83,7 +82,7 @@ public class Parser {
      */
 
 
-    public static Task todo(String userCmd) throws DukeException {
+    public static Task getTodoTask(String userCmd) throws DukeException {
         if(userCmd.length()<TODO_CMD_LENGTH+1){
             throw new  DukeException(DESC_MISSING);
         }
@@ -106,7 +105,7 @@ public class Parser {
      * @throws DukeException If errors under DukeExceptions are caught.
      */
 
-    public static int donedeleteIndex(String userCmd, String type, int size) throws DukeException{
+    public static int getDoneDeleteIndex(String userCmd, String type, int size) throws DukeException{
         setParam(type);
         String indexStr;
         int index;
@@ -128,7 +127,16 @@ public class Parser {
         return index;
     }
 
-    public static String findKey(String userCmd) throws DukeException {
+    /**
+     * Processes the user command and returns keyword for find commands.
+     * Checks for errors and validity of user input.
+     *
+     * @param userCmd Full input by user.
+     * @return keyword for find command
+     * @throws DukeException If errors under DukeExceptions are caught.
+     */
+
+    public static String getFindKeyword(String userCmd) throws DukeException {
         String key;
         if(userCmd.length()<FIND_CMD_LENGTH+1){
             throw new DukeException("Find blank");
@@ -169,33 +177,52 @@ public class Parser {
         }
     }
 
+    /**
+     * Checks raw dateTime from user input for errors
+     *
+     * @param dateTime raw dateTime input
+     * @throws DukeException If errors under DukeExceptions are caught.
+     */
+
     private static void dateTimeValid(String dateTime) throws DukeException {
         try {
-            LocalDateTime dt = parseDateTime(dateTime);
+            LocalDateTime dt = getLocalDateTime(dateTime);
         } catch (DateTimeParseException | ArrayIndexOutOfBoundsException e) {
             throw new DukeException("DateTime invalid");
         }
-        LocalDateTime dt = parseDateTime(dateTime);
+        LocalDateTime dt = getLocalDateTime(dateTime);
         LocalDateTime dt_now=LocalDateTime.now();
         if(dt.isBefore(dt_now)){
             throw new DukeException("DateTime before");
         }
     }
 
-    public static LocalDateTime parseDateTime(String dateTime){
+    /**
+     * Parses raw dateTime from user input and returns LocalDateTime
+     *
+     * @param dateTime raw dateTime input to be parsed
+     * @return LocalDateTime
+     */
+    public static LocalDateTime getLocalDateTime(String dateTime){
         String [] splitTime= dateTime.split(" ");
         String [] date= splitTime[0].split("/");
         String [] time= splitTime[1].split(":");
-        String year=dateTimeNumber(date[2].trim());
-        String month=dateTimeNumber(date[1].trim());
-        String day=dateTimeNumber(date[0].trim());
-        String hr= dateTimeNumber(time[0].trim());
-        String min=dateTimeNumber(time[1].trim());
+        String year= getDateTimeNumber(date[2].trim());
+        String month= getDateTimeNumber(date[1].trim());
+        String day= getDateTimeNumber(date[0].trim());
+        String hr= getDateTimeNumber(time[0].trim());
+        String min= getDateTimeNumber(time[1].trim());
         LocalDateTime dt= LocalDateTime.parse(year+"-"+month+"-"+day+"T"+hr+":"+min);
-        System.out.println(dt.format(DateTimeFormatter.ofPattern("dd MMM yyyy HH:mm")));
         return dt;
     }
-    private static String dateTimeNumber(String number){
+
+    /**
+     * Modifies number in order for it to be read as in LocalDateTime.parse
+     *
+     * @param number
+     * @return number readable by LocalDateTime
+     */
+    private static String getDateTimeNumber(String number){
         if(number.length()==1){
             return ("0"+number);
         } else{

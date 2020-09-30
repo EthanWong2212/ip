@@ -34,6 +34,7 @@ public class DukeException extends Exception{
             break;
         case "Find blank":
             System.out.println("OOPS!!! I'm sorry but I don't know what you are looking for");
+            break;
         case "DateTime invalid":
             System.out.println("Please input date and time in this format:");
             System.out.println("DD/MM/YYYY HH:mm");

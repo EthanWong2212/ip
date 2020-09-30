@@ -51,7 +51,6 @@ public class TaskList {
 
     }
 
-    /** Prints taskList */
     public void printList(){
         for(Task task: taskList) {
             System.out.println((taskList.indexOf(task)+1) + "." + task);
