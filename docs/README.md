@@ -70,13 +70,13 @@ Adds a deadline task to task list
 
 ### 2.5 `event`- Add event
 Adds an event to task list
-Format: `event DESCRIPTION /at DATE TIME`
-  * `DATE` must be in **dd/MM/yyyy** format. eg `9/12/2020` for 9th december 2020
-  * `TIME` must be in **HH:mm** 24 hours time format. eg `22:59` for 10:59pm.
-  * `DATE TIME` must be in future
-Example: `event career workshop /at 30/12/2021 12:00`
-  *Adds a event task with description "event career workshop", at "30th December 2021 12:00"
-Outcome:
+**Format:** `event DESCRIPTION /at DATE TIME`
+* `DATE` must be in **dd/MM/yyyy** format. eg `9/12/2020` for 9th december 2020
+* `TIME` must be in **HH:mm** 24 hours time format. eg `22:59` for 10:59pm.
+* `DATE TIME` must be in future
+**Example:** `event career workshop /at 30/12/2021 12:00`
+*Adds a event task with description "event career workshop", at "30th December 2021 12:00"
+**Outcome:**
 
 ### 2.6 `done`- Mark done
 Marks a task in task list as done
