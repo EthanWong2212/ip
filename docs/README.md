@@ -27,6 +27,12 @@ Ethan is a handy personal task manager which will help you maintain your task li
 7. Refer to features section below for other commands
 
 ## Features 
+```
+Notes about command format:
+* Words in **CAPITAL LETTERS** are parameters users input.
+e.g. for ``todo DESCRIPTION``, `DESCRIPTION` is a parameter the user provides such as `todo buy shirts` 
+```
+
 There are **3** types of task, **todo**,**deadlines** and **events**
 
 Following is a list of commands at your disposal:
@@ -56,7 +62,7 @@ Shows list of tasks
 
 **Outcome:**
 
-! [list eg](list_out.png)
+![list eg](list_out.png)
 
 
 ### 3. Add todo: `todo` 
@@ -77,8 +83,8 @@ Adds a deadline task to task list
 
 **Format**: `deadline DESCRIPTION /by DATE TIME`
  
-* `DATE` must be in **dd/MM/yyyy** format. eg `9/12/2020` for 9th december 2020
-* `TIME` must be in **HH:mm** 24 hours time format. eg `22:59` for 10:59pm.
+ * `DATE` must be in **dd/MM/yyyy** format. e.g. `9/12/2020` for 9th december 2020
+ * `TIME` must be in **HH:mm** 24 hours time format. e.g. `22:59` for 10:59pm.
 * `DATE TIME` must be in future
 
 **Example:** `deadline math project /by 22/12/2020 23:59`
@@ -87,7 +93,7 @@ Adds a deadline task to task list
 
 **Outcome:**
 
-! [deadline eg](deadline_out.png)
+![deadline eg](deadline_out.png)
 
 
 ### 5. Add event: `event`
@@ -95,8 +101,8 @@ Adds an event to task list
 
 **Format:** `event DESCRIPTION /at DATE TIME`
 
-* `DATE` must be in **dd/MM/yyyy** format. eg `9/12/2020` for 9th december 2020
-* `TIME` must be in **HH:mm** 24 hours time format. eg `22:59` for 10:59pm.
+* `DATE` must be in **dd/MM/yyyy** format. e.g. `9/12/2020` for 9th december 2020
+* `TIME` must be in **HH:mm** 24 hours time format. e.g. `22:59` for 10:59pm.
 * `DATE TIME` must be in future
 
 **Example:** `event career workshop /at 30/12/2021 12:00`
@@ -105,7 +111,7 @@ Adds an event to task list
 
 **Outcome:**
 
-! [event eg](event_out.png)
+![event eg](event_out.png)
 
 
 ### 6. Mark done: `done`
@@ -121,7 +127,7 @@ Marks a task in task list as done
 
 **Outcome:**
 
-! [done eg](done_out.png)
+![done eg](done_out.png)
 
 
 ### 7. Delete task: `delete`
@@ -137,7 +143,7 @@ Deletes a task from task list
 
 **Outcome:**
 
-! [delete eg](delete_out.png)
+![delete eg](delete_out.png)
 
 
 ### 8. Find task: `find`
@@ -151,7 +157,7 @@ Finds task from task list based on `KEYWORD` and description.
 
 **Outcome:**
 
-! [find eg](find_out.png)
+![find eg](find_out.png)
 
 
 ### 9. End program: `bye`
