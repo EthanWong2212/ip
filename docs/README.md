@@ -4,15 +4,15 @@ Ethan is a handy personal task manager which will help you maintain your task li
 
 * [Quick Start](#quick-start)
 * [Features](#features)
-    + [1. View help: `help`](#1-help-view-help)
-    + [2. View task list: `list`](#2-list-view-list)
-    + [3. Add todo: `todo`](#3-add-todo)
-    + [4. Add deadline: `deadline`](#4-deadline-add-deadline)
-    + [5. Add event: `event`](#5-event-add-event)
-    + [6. Mark Done: `done`](#6-done-mark-done)
-    + [7. Delete task: `delete`](#7-delete-delete-task)
-    + [8. Find task: `find`](#8-find-find-task)
-    + [9. End the program: `bye`](#9-bye)
+    + [1. View help: `help`](#1-view-help-help)
+    + [2. View task list: `list`](#2-view-task-list-list)
+    + [3. Add todo: `todo`](#3-add-todo-todo)
+    + [4. Add deadline: `deadline`](#4-add-deadline-deadline)
+    + [5. Add event: `event`](#5-add-event-event)
+    + [6. Mark Done: `done`](#6-mark-done-done)
+    + [7. Delete task: `delete`](#7-delete-task-delete)
+    + [8. Find task: `find`](#8-find-task-find)
+    + [9. End program: `bye`](#9-end-program-bye)
 * [FAQ](#faq)
 * [Command Summary](#command-summary)
 
@@ -40,24 +40,24 @@ Following is a list of commands at your disposal:
 * `find`- Find tasks
 * `bye`- End program
 
-### 1. `help` - View help
+### 1. View help: `help`
 Shows the commands and their respective input formats
 
 **Format:** `help`
 
 **Outcome:**
 
-### 2. `list`- View task list
+### 2. View task list: `list`
 Shows list of tasks
 
 **Format:** `list`
 
 **Outcome:**
 
-### 3. `todo`- Add todo
+### 3. Add todo: `todo` 
 Adds a todo task to task list
 
-**Format:** `todo DESCRIPTION`
+**Format:** `todo` ```` DESCRIPTION````
 
 **Example:** `todo wash car`
   *Adds a todo task with description "wash car" to task list
@@ -65,7 +65,7 @@ Adds a todo task to task list
 **Outcome:**
 
 
-### 4. `deadline`- Add deadline
+### 4. Add deadline: `deadline`
 Adds a deadline task to task list
 
 **Format**: `deadline DESCRIPTION /by DATE TIME`
@@ -80,7 +80,7 @@ Adds a deadline task to task list
 
 **Outcome:**
 
-### 5. `event`- Add event
+### 5. Add event: `event`
 Adds an event to task list
 
 **Format:** `event DESCRIPTION /at DATE TIME`
@@ -95,7 +95,7 @@ Adds an event to task list
 
 **Outcome:**
 
-### 6. `done`- Mark done
+### 6. Mark done: `done`
 Marks a task in task list as done
 
 **Format:** `done TASKNUMBER`
@@ -108,7 +108,7 @@ Marks a task in task list as done
 
 **Outcome:**
 
-### 7. `delete`- Delete task
+### 7. Delete task: `delete`
 Deletes a task from task list
 
 **Format:** `delete TASKNUMBER`
@@ -121,7 +121,7 @@ Deletes a task from task list
 
 **Outcome:**
 
-### 8. `find`- Find task
+### 8. Find task: `find`
 Finds task from task list based on `KEYWORD` and description.
 
 **Format:** `find KEYWORD`
@@ -133,7 +133,7 @@ Finds task from task list based on `KEYWORD` and description.
 **Outcome:**
 
 
-### 9. `bye`- End program
+### 9. End program: `bye`
 Ends program before saving and updating task list
 
 **Format** `bye`
