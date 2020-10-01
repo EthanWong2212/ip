@@ -173,7 +173,7 @@ Ends program after saving and updating task list
 
 ## Command Summary
 Action | Format | Example
--------- | --------- | ---------
+--- | --- | ---
 help | `help` | 'help'
 list | `list` | `list`
 todo | `todo DESCRIPTION` | `todo buy some milk`
