@@ -53,16 +53,21 @@ Shows list of tasks
 **Format:** `list`
 
 **Outcome:**
+! [help eg]
+(help_out.png)
+
 
 ### 3. Add todo: `todo` 
 Adds a todo task to task list
 
-**Format:** `todo` ```` DESCRIPTION````
+**Format:** `todo DESCRIPTION` 
 
 **Example:** `todo wash car`
   *Adds a todo task with description "wash car" to task list
 
 **Outcome:**
+! [todo eg]
+(todo_out.png)
 
 
 ### 4. Add deadline: `deadline`
@@ -79,6 +84,9 @@ Adds a deadline task to task list
 * Adds a deadline task with description "deadline math project", by "22nd December 2020 23:59"
 
 **Outcome:**
+! [deadline eg]
+(deadline_out.png)
+
 
 ### 5. Add event: `event`
 Adds an event to task list
@@ -94,6 +102,9 @@ Adds an event to task list
 * Adds a event task with description "event career workshop", at "30th December 2021 12:00"
 
 **Outcome:**
+! [event eg]
+(event_out.png)
+
 
 ### 6. Mark done: `done`
 Marks a task in task list as done
@@ -107,6 +118,9 @@ Marks a task in task list as done
 *Marks task with task number 1 as done.
 
 **Outcome:**
+! [done eg]
+(done_out.png)
+
 
 ### 7. Delete task: `delete`
 Deletes a task from task list
@@ -120,6 +134,9 @@ Deletes a task from task list
 * Deletes task with task number 1.
 
 **Outcome:**
+! [delete eg]
+(delete_out.png)
+
 
 ### 8. Find task: `find`
 Finds task from task list based on `KEYWORD` and description.
@@ -131,6 +148,8 @@ Finds task from task list based on `KEYWORD` and description.
 * Finds and shows tasks with "career" in description.
 
 **Outcome:**
+! [find eg]
+(find_out.png)
 
 
 ### 9. End program: `bye`
