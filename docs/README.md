@@ -161,9 +161,14 @@ Finds task from task list based on `KEYWORD` and description.
 
 
 ### 9. End program: `bye`
-Ends program before saving and updating task list
+Ends program after saving and updating task list
 
 **Format** `bye`
+
+## FAQ
+**Q**: Where is my task list data stored?
+**A**: The task list data is named "Duke.txt" and can be found in the data folder in your home folder (where you stored ip.jar)
+
 
 ## Command Summary
 Action | Format | Example
