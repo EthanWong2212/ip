@@ -29,8 +29,8 @@ Ethan is a handy personal task manager which will help you maintain your task li
 ## Features 
 ```
 Notes about command format:
-* Words in **CAPITAL LETTERS** are parameters users input.
-e.g. for ``todo DESCRIPTION``, `DESCRIPTION` is a parameter the user provides such as `todo buy shirts` 
+1. Words in CAPITAL LETTERS are parameters users input.
+   e.g. for "todo DESCRIPTION", "DESCRIPTION" is a parameter the user provides such as "todo buy shirts" 
 ```
 
 There are **3** types of task, **todo**,**deadlines** and **events**
