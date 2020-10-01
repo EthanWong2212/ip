@@ -167,7 +167,8 @@ Ends program after saving and updating task list
 
 ## FAQ
 **Q**: Where is my task list data stored?
-**A**: The task list data is named "Duke.txt" and can be found in the data folder in your home folder (where you stored ip.jar)
+
+**A**: The task list data is named `Duke.txt` and can be found in the data folder in your home folder (where you stored ip.jar)
 
 
 ## Command Summary
