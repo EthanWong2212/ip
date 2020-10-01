@@ -67,7 +67,7 @@ Adds a todo task to task list
 
 **Outcome:**
 ! [todo eg]
-(todo_out.png)
+(/todo_out.png)
 
 
 ### 4. Add deadline: `deadline`
