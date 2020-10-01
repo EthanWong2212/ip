@@ -172,6 +172,7 @@ Ends program after saving and updating task list
 
 
 ## Command Summary
+
 Action | Format | Example
 --- | --- | ---
 help | `help` | 'help'
