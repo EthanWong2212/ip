@@ -1,7 +1,7 @@
 package Duke;
 
 import Duke.Command.Command;
-import Duke.FileHandler.FileHandler;
+import Duke.Storage.FileHandler;
 
 import Duke.Task.TaskList;
 import Duke.Ui.Ui;
