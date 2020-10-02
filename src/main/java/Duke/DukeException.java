@@ -43,6 +43,9 @@ public class DukeException extends Exception{
             System.out.println("The date and time you have input has passed :-(");
             System.out.println("Please input valid date");
             break;
+        default:
+            System.out.println("OOPS!!! I'm sorry, something went wrong :-(");
+            break;
 
         }
     }

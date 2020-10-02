@@ -1,5 +1,5 @@
 D|0|CS2113T iP|2/10/2020 23:59
 E|1|bookstore sale|22/1/2021 23:59
 T|0|wash car
-D|0|math project|22/12/2020 23:59
+D|1|math project|22/12/2020 23:59
 E|0|career workshop|30/12/2021 12:00

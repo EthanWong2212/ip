@@ -79,11 +79,11 @@ public class TaskList {
         }
     }
 
-    /** Gets taskList */
+    /** Returns taskList */
     public ArrayList<Task> getList(){
         return taskList;
     }
-    /** Gets size of taskList*/
+    /** Returns size of taskList*/
     public int getSize(){
         return taskList.size();
     }
